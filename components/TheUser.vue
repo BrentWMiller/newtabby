@@ -6,7 +6,10 @@
       :src="photoURL"
       :alt="`Photo for ${displayName ? displayName : 'user'}`"
     />
-    <span class="ml-4" v-if="displayName">{{ displayName }}</span>
+    <span class="ml-4" v-if="displayName">
+      Good morning,<br />
+      {{ displayName }}
+    </span>
   </div>
 </template>
 
