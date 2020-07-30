@@ -6,7 +6,9 @@
     "debug": "nuxt -o",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "export": "nuxt export",
+    "deploy": "firebase use tabby-4af5b && npm run build && npm run generate && firebase deploy"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
