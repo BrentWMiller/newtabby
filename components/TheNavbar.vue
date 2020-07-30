@@ -1,11 +1,17 @@
 <template>
   <nav>
-    Navbar
+    <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    user: {
+      type: Object
+    }
+  }
+};
 </script>
 
 <style></style>

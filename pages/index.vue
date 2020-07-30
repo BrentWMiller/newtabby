@@ -1,10 +1,32 @@
 <template>
-  <div class="container">Tabby</div>
+  <div class="container">
+    <the-navbar :user="user" />
+    <h1>Tabby</h1>
+
+    <button @click="signIn">
+      {{ isLoggedIn ? "Switch account" : "Sign in" }}
+    </button>
+  </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters("user", ["isLoggedIn"]),
+    ...mapGetters("user", ["user"])
+  },
+  methods: {
+    async signIn() {
+      try {
+        await this.$store.dispatch("user/signInWithGoogle");
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+};
 </script>
 
-<style>
-</style>
+<style></style>
