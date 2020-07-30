@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <the-navbar :user="user" />
-    <h1>Tabby</h1>
+    <h1>New Tabby</h1>
 
     <button @click="signIn">
       {{ isLoggedIn ? "Switch account" : "Sign in" }}
