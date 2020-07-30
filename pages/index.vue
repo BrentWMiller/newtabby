@@ -3,6 +3,8 @@
     <h1 class="sr-only">New Tabby</h1>
 
     <the-navbar :user="user" />
+
+    <the-color-switcher />
   </div>
 </template>
 
