@@ -62,6 +62,15 @@ export const actions = {
       throw error;
     }
   },
+  async getUserToken({ commit }) {
+    try {
+      const token = await this.$fireAuth.currentUser.getIdToken();
+      commit("SET_TOKEN", token);
+    } catch (error) {
+      throw error;
+    }
+  },
+
   async signInWithGoogle({ commit, dispatch }) {
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -71,13 +80,15 @@ export const actions = {
       console.error(error);
     }
   },
+  async logout({ commit, dispatch }) {
+    const user = this.$fireAuth.currentUser;
 
-  async getUserToken({ commit }) {
     try {
-      const token = await this.$fireAuth.currentUser.getIdToken();
-      commit("SET_TOKEN", token);
+      await this.$fireAuth.signOut();
     } catch (error) {
       throw error;
+    } finally {
+      commit("RESET_USER");
     }
   }
 };

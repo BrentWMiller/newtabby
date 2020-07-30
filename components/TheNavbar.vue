@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="py-4">
     <div class="flex justify-between">
       <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
       <the-clock></the-clock>
