@@ -1,7 +1,7 @@
 export default {
   site_name: "New Tabby",
   description: "Your dashboard on every new tab",
-  theme_color: "#ffffff",
+  theme_color: "#040404",
   firebase: {
     config: {
       apiKey: "AIzaSyD6UhXa92S_dPnTxp-3DrngSHOfU1g7684",
