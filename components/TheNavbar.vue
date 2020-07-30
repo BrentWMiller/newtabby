@@ -5,6 +5,7 @@
       >{{ user.displayName ? `, ${user.displayName}` : "" }}
     </h2>
     <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
+    <the-clock></the-clock>
   </nav>
 </template>
 
