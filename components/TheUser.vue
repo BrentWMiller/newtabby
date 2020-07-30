@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="flex items-center">
     <img
+      class="rounded-full"
       v-if="displayName"
       :src="photoURL"
       :alt="`Photo for ${displayName ? displayName : 'user'}`"
     />
-    <span v-if="displayName">{{ displayName }}</span>
+    <span class="ml-4" v-if="displayName">{{ displayName }}</span>
   </div>
 </template>
 
@@ -22,4 +23,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 50px;
+  height: 50px;
+}
+</style>

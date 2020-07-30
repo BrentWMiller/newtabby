@@ -6,6 +6,10 @@
  */
 module.exports = {
   theme: {
+    fontFamily: {
+      body: ["Quicksand"],
+      display: ["Quicksand"]
+    },
     extend: {
       colors: {
         black: {

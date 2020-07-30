@@ -7,6 +7,6 @@
 <style>
 body {
   @apply bg-black-500;
-  @apply text-white;
+  @apply font-body text-white;
 }
 </style>
