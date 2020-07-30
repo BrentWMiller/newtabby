@@ -1,6 +1,7 @@
 <template>
   <div>
-    {{ time }}
+    {{ time }}<br />
+    {{ date }}
   </div>
 </template>
 
@@ -10,7 +11,8 @@ import moment from "moment";
 export default {
   data() {
     return {
-      time: moment().format("h:mm a")
+      time: moment().format("h:mm a"),
+      date: moment().format("dddd, MMMM Do")
     };
   },
   mounted() {
