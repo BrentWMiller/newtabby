@@ -10,3 +10,11 @@ body {
   @apply font-body text-white;
 }
 </style>
+
+<script>
+export default {
+  async mounted() {
+    await this.$store.dispatch('user/initClient');
+  },
+};
+</script>
