@@ -1,16 +1,16 @@
-import NT_CONFIG from "./nt.config";
+import NT_CONFIG from './nt.config';
 
 export default {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: "spa",
+  mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: "server",
+  target: 'server',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -18,15 +18,20 @@ export default {
   head: {
     title: NT_CONFIG.site_name,
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "description",
-        name: "description",
-        content: NT_CONFIG.description
-      }
+        hid: 'description',
+        name: 'description',
+        content: NT_CONFIG.description,
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: 'https://apis.google.com/js/api.js',
+      },
+    ],
   },
   /*
    ** Global CSS
@@ -47,16 +52,16 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    "@nuxtjs/tailwindcss"
+    '@nuxtjs/tailwindcss',
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios",
-    "@nuxtjs/pwa",
-    "@nuxtjs/firebase"
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    '@nuxtjs/firebase',
   ],
   /*
    ** Axios module configuration
@@ -69,14 +74,14 @@ export default {
       firestore: true,
       auth: {
         initialize: {
-          onAuthStateChangedAction: "user/onAuthStateChangedAction"
-        }
-      }
-    }
+          onAuthStateChangedAction: 'user/onAuthStateChangedAction',
+        },
+      },
+    },
   },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {},
 };
