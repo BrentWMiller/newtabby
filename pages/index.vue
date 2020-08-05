@@ -5,16 +5,18 @@
     <the-navbar :user="user" />
 
     <the-color-switcher />
+
+    <the-meetings-list />
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters("user", ["user"])
-  }
+    ...mapGetters('user', ['user']),
+  },
 };
 </script>
 
