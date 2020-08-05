@@ -1,35 +1,37 @@
-import Vue from "vue";
-import { cloneDeep } from "lodash";
-import firebase from "firebase";
+import Vue from 'vue';
+import { cloneDeep } from 'lodash';
+import * as firebase from 'firebase';
+
+import NT_CONFIG from '../nt.config.js';
 
 const User = {
-  uid: "",
-  email: "",
-  displayName: "",
-  photoURL: ""
+  uid: '',
+  email: '',
+  displayName: '',
+  photoURL: '',
 };
 
 const getDefaultState = () => ({
-  token: "",
-  user: cloneDeep(User)
+  token: '',
+  user: cloneDeep(User),
 });
 
 export const state = getDefaultState;
 
 export const getters = {
-  isLoggedIn: state => {
+  isLoggedIn: (state) => {
     try {
-      return state.user.uid !== "";
+      return state.user.uid !== '';
     } catch {
       return false;
     }
   },
-  uid: state => {
+  uid: (state) => {
     return state.user.uid;
   },
-  user: state => {
+  user: (state) => {
     return state.user;
-  }
+  },
 };
 
 export const mutations = {
@@ -41,12 +43,12 @@ export const mutations = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
     });
   },
   SET_TOKEN(state, token) {
     state.token = token;
-  }
+  },
 };
 
 export const actions = {
@@ -56,8 +58,8 @@ export const actions = {
     }
 
     try {
-      await dispatch("getUserToken");
-      commit("SET_USER", authUser);
+      await dispatch('getUserToken');
+      commit('SET_USER', authUser);
     } catch (error) {
       throw error;
     }
@@ -65,21 +67,26 @@ export const actions = {
   async getUserToken({ commit }) {
     try {
       const token = await this.$fireAuth.currentUser.getIdToken();
-      commit("SET_TOKEN", token);
+      commit('SET_TOKEN', token);
     } catch (error) {
       throw error;
     }
   },
 
-  async signInWithGoogle({ commit, dispatch }) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-
+  async signInWithGoogle() {
     try {
-      await firebase.auth().signInWithPopup(provider);
+      const googleAuth = gapi.auth2.getAuthInstance();
+      const googleUser = await googleAuth.signIn();
+
+      const token = googleUser.getAuthResponse().id_token;
+      const credential = firebase.auth.GoogleAuthProvider.credential(token);
+
+      await this.$fireAuth.signInWithCredential(credential);
     } catch (error) {
       console.error(error);
     }
   },
+
   async logout({ commit, dispatch }) {
     const user = this.$fireAuth.currentUser;
 
@@ -88,7 +95,28 @@ export const actions = {
     } catch (error) {
       throw error;
     } finally {
-      commit("RESET_USER");
+      commit('RESET_USER');
     }
-  }
+  },
+
+  async initClient() {
+    try {
+      await new Promise((resolve, reject) => {
+        gapi.load('client', () => {
+          gapi.client.init({
+            apiKey: NT_CONFIG.gapi.apiKey,
+            clientId: NT_CONFIG.gapi.clientId,
+            discoveryDocs: NT_CONFIG.gapi.discoveryDocs,
+            scope: NT_CONFIG.gapi.scope,
+          });
+
+          gapi.client.load('calendar', 'v3');
+
+          resolve();
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
