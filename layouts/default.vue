@@ -4,9 +4,9 @@
   </div>
 </template>
 
-<style>
+<style lang="postcss">
 body {
-  @apply bg-black-500;
+  @apply bg-black-800;
   @apply font-body text-white;
 }
 </style>
