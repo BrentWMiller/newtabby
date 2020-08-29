@@ -1,8 +1,9 @@
 <template>
   <nav class="py-4">
     <div class="flex justify-between">
-      <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
+      <the-greeting :displayName="user.displayName" />
       <the-clock />
+      <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
       <the-weather />
     </div>
   </nav>
