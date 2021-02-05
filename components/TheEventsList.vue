@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2 class="sr-only">Events</h2>
-    <button @click="loadCalendar()">Load calendar</button>
     <ul v-if="events" class="max-w-md bg-black-400 rounded-10px">
       <li v-for="event in events" :key="event.id">
         <a :href="event.htmlLink" target="_blank" class="block px-6 py-4 hover:bg-black-700">
@@ -21,14 +20,14 @@ import moment from 'moment';
 import { mapState } from 'vuex';
 
 export default {
+  mounted() {
+    try {
+      this.$store.dispatch('calendar/getEvents');
+    } catch (error) {
+      console.log(error);
+    }
+  },
   methods: {
-    async loadCalendar() {
-      try {
-        this.$store.dispatch('calendar/getEvents');
-      } catch (error) {
-        console.log(error);
-      }
-    },
     formattedDateTime(date) {
       if (!date) return;
       return moment(date.dateTime).fromNow(true);
