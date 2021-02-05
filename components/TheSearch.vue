@@ -27,6 +27,6 @@ export default {
 
 <style scoped lang="postcss">
   .search {
-    min-width: 330px;
+    min-width: 500px;
   }
 </style>
