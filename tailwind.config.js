@@ -41,8 +41,13 @@ module.exports = {
     extend: {
       ...varsConfig,
 
+      spacing: {
+        3: '0.75rem',
+        5: '1.25rem'
+      },
       borderRadius: {
         '4px': '0.25rem',
+        '10px': '0.625rem',
         '15px': '0.9375rem',
       },
       borderWidth: {
