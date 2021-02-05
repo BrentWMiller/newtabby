@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="flex justify-end space-x-2">
+    <span class="capitalize">{{ description }}</span>
     <span v-html="svg"></span>
-    {{ description }}
   </div>
 </template>
 

@@ -1,12 +1,16 @@
 <template>
   <div class="container mx-auto">
-    <h1 class="sr-only">New Tabby</h1>
+    
+    <div class="mt-4">
+      <img src="/svgs/logo.svg" alt="New Tabby Logo" width="71" height="30">
+      <h1 class="sr-only">New Tabby</h1>
+    </div>
 
     <the-navbar :user="user" />
 
-    <the-color-switcher />
+    <the-weather />
 
-    <the-meetings-list />
+    <the-events-list />
   </div>
 </template>
 

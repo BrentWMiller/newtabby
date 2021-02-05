@@ -1,8 +1,8 @@
 <template>
-  <datetime class="font-medium text-right">
-    <div class="leading-none uppercase text-32">{{ time }}</div>
-    <div class="text-primary-500 text-18">{{ date }}</div>
-  </datetime>
+  <div class="flex flex-col space-y-1 font-medium text-right">
+    <time class="block leading-none uppercase text-32">{{ time }}</time>
+    <time class="block text-primary-500 text-18">{{ date }}</time>
+  </div>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       time: moment().format('h:mm a'),
-      date: moment().format('dddd, MMMM Do'),
+      date: moment().format('ddd, MMMM Do'),
     };
   },
   mounted() {

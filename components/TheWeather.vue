@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="text-right">
     <weather-icon v-if="weather.icon" :icon="weather.icon" :description="weather.description" />
-    {{ temp }}&deg;F
+    Feels like {{ temp }}&deg;F
   </div>
 </template>
 
@@ -23,7 +23,8 @@ export default {
       const data = await res.json();
 
       if (!data) return;
-      this.temp = Math.round(data.main.temp);
+      console.log(data);
+      this.temp = Math.round(data.main.feels_like);
       this.weather = data.weather[0];
     },
   },

@@ -1,10 +1,13 @@
 <template>
   <nav class="py-4">
     <div class="flex justify-between">
+
       <the-greeting :displayName="user.displayName" />
-      <the-clock />
-      <the-user :displayName="user.displayName" :photoURL="user.photoURL" />
-      <the-weather />
+
+      <div class="flex space-x-4">
+        <the-clock />
+        <the-user :displayName="user.displayName" :photoURL="user.photoURL" :email="user.email"/>
+      </div>
     </div>
   </nav>
 </template>
