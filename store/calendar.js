@@ -37,8 +37,6 @@ export const actions = {
       orderBy: 'startTime',
     });
 
-    console.log('events: ', events);
-
     commit('SET_EVENTS', events.result.items);
   },
 };

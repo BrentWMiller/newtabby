@@ -25,7 +25,6 @@ export default {
       const data = await res.json();
 
       if (!data) return;
-      console.log(data);
       this.temp = Math.round(data.main.feels_like);
       this.weather = data.weather[0];
     },
