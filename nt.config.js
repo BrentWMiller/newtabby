@@ -1,6 +1,6 @@
 export default {
   site_name: 'New Tabby',
-  description: 'Your dashboard on every new tab',
+  description: 'Your dashboard on every new tab.',
   theme_color: '#040404',
   firebase: {
     config: {
@@ -19,4 +19,7 @@ export default {
     discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
     scope: 'https://www.googleapis.com/auth/calendar.readonly',
   },
+  openweathermap: {
+    apiKey: 'a8b03945dda88804988672da6b7bbdf0'
+  }
 };

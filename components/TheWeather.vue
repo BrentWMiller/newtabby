@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import NT_CONFIG from '../nt.config.js';
+
 export default {
   data() {
     return {
@@ -18,8 +20,8 @@ export default {
   },
   methods: {
     async getWeather() {
-      // @TEMP Move key to config; Allow city to be set; Allow units to be set
-      const res = await fetch('https://api.openweathermap.org/data/2.5/weather?id=5149222&appid=a8b03945dda88804988672da6b7bbdf0&units=imperial');
+      // TODO Allow city to be set; Allow units to be set
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=5149222&appid=${NT_CONFIG.openweathermap.apiKey}&units=imperial`);
       const data = await res.json();
 
       if (!data) return;
