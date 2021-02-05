@@ -4,6 +4,8 @@
 
       <the-greeting :displayName="user.displayName" />
 
+      <the-search />
+
       <div class="flex space-x-4">
         <the-clock />
         <the-user :displayName="user.displayName" :photoURL="user.photoURL" :email="user.email"/>
