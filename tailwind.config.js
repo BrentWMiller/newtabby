@@ -4,6 +4,7 @@ const useVars = require('./use-vars');
 const { root, varsConfig } = useVars({
   colors: {
     black: {
+      400: '#130622',
       500: '#040404',
       700: '#0D0417',
       800: '#090112',
@@ -19,7 +20,7 @@ const { root, varsConfig } = useVars({
     },
 
     accent: {
-      500: '#00FFD1',
+      500: '#97fe02',
     },
   },
 });
@@ -27,10 +28,11 @@ const { root, varsConfig } = useVars({
 module.exports = {
   theme: {
     fontSize: {
-      16: ['1', 'auto'],
-      18: ['1.125', 'auto'],
-      24: ['1.5rem', 'auto'],
-      32: ['2rem', 'auto'],
+      16: ['1', '1.2'],
+      18: ['1.125', '1.2'],
+      24: ['1.5rem', '1.2'],
+      32: ['2rem', '1.2'],
+      48: ['3rem', '1.2'],
     },
     fontFamily: {
       body: ['Quicksand'],
@@ -40,8 +42,17 @@ module.exports = {
       ...varsConfig,
 
       borderRadius: {
-        15: '15px',
+        '4px': '0.25rem',
+        '15px': '0.9375rem',
       },
+      borderWidth: {
+        '3px': '3px'
+      },
+      inset: (theme) => ({
+        ...theme('spacing'),
+        ...theme('width'),
+        ...theme('margin'),
+      }),
     },
   },
   variants: {},
