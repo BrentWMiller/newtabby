@@ -15,7 +15,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "feather-icons": "^4.28.0",
     "firebase": "^7.24.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "nuxt": "^2.14.12"
   },
